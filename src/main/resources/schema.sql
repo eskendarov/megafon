@@ -1,7 +1,7 @@
-DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS users;
 
-CREATE TABLE user (
-    id       INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    login    VARCHAR(2000)                  NOT NULL,
-    password VARCHAR(2000)                  NOT NULL
+CREATE TABLE users (
+    id       SERIAL PRIMARY KEY,
+    login    VARCHAR(2000) NOT NULL,
+    password VARCHAR(2000) NOT NULL
 );

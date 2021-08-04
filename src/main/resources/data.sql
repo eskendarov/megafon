@@ -1,4 +1,4 @@
-INSERT INTO user (login, password)
+INSERT INTO users (login, password)
 VALUES ('cake', '455a'),
        ('candy', '1eer'),
        ('player', 'qq123'),
