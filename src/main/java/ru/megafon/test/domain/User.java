@@ -1,5 +1,10 @@
 package ru.megafon.test.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +18,11 @@ import java.util.Objects;
  * @author Enver Eskendarov
  * @version 1.0 04.08.2021
  */
+@Getter
+@Setter
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "users")
 public class User {
 
@@ -22,30 +31,6 @@ public class User {
     private int id;
     private String login;
     private String password;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -56,22 +41,21 @@ public class User {
             return false;
         }
         final User user = (User) o;
-        return id == user.id
-                && login.equals(user.login)
-                && password.equals(user.password);
+        return Objects.equals(login, user.login)
+                && Objects.equals(password, user.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, login, password);
+        return Objects.hash(login, password);
     }
 
 
     @Override
     public String toString() {
         return String.format(
-                "User{id='%d', login='%s', password='%s'}",
-                id, login, password
+                "User{login='%s', password='%s'}",
+                login, password
         );
     }
 }

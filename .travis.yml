@@ -23,7 +23,7 @@ services:
   - postgresql
 
 before_install:
-  - psql -c 'create database testdb;' -U postgres
+  - psql -c 'create database psqldb;' -U postgres
 
 env:
   global:
